@@ -1,4 +1,5 @@
 import React from "react";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
   ResetDialog,
   GenericFallback,
@@ -13,12 +14,26 @@ import { useRegisterSW } from "virtual:pwa-register/react";
 
 //components
 import { Tasks } from "./components/Tasks";
+import { SpacesBar } from "./components/SpacesBar";
+
 
 //potentially useless
 import { ErrorBoundary } from "./ErrorBoundary";
 import { Welcome } from "./Welcome";
 
 import "./main.css";
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <SpacesBar />,
+    children: [
+      { path: '/', element: <Tasks /> },
+      { path: ':spaceKey', element: <Tasks /> },
+      { path: ':spaceKey/:state', element: <Tasks /> },
+    ],
+  },
+]);
 
 // Dynamics allows configuration to be supplied by the hosting KUBE.
 const config = async () => new Config(await Dynamics(), Defaults());
@@ -28,8 +43,8 @@ export const App = () => {
 
   return (
     <ClientProvider config={config} fallback={GenericFallback}>
-      {/* <ServiceWorkerToastContainer {...serviceWorker} /> */}
-      <Tasks />
+      <ServiceWorkerToastContainer {...serviceWorker} />
+      <RouterProvider router={router} />
     </ClientProvider>
   );
 };

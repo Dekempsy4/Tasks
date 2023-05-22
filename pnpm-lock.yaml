@@ -22,6 +22,9 @@ dependencies:
   '@phosphor-icons/react':
     specifier: ^2.0.5
     version: 2.0.5(react-dom@18.2.0)(react@18.2.0)
+  '@sentry/react':
+    specifier: ^7.52.1
+    version: 7.52.1(react@18.2.0)
   bootstrap:
     specifier: ^5.2.3
     version: 5.2.3(@popperjs/core@2.11.7)

@@ -1,3 +1,7 @@
+#TEST {
+    font-size: 300px;
+}
+
 #root {
     background-color:#1b1b1e;
 }
@@ -22,9 +26,13 @@
     left: 0;
     top: 0;
     height: 100vh;
-    width: 15%;
+    width: 25%;
     color: white;
     padding: 10px;
+    overflow: scroll;
+}
+.example::-webkit-scrollbar {
+    display: none;
 }
 
 #sideBarTitle {
