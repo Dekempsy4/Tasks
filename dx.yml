@@ -1,7 +1,7 @@
 version: 1
 package:
   modules:
-    - name: FT-Todo
+    - name: FT-Tasks
       type: dxos:type/app
       build:
         command: npm run build

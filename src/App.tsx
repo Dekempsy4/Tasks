@@ -12,7 +12,7 @@ import { Config, Dynamics, Defaults } from "@dxos/config";
 import { useRegisterSW } from "virtual:pwa-register/react";
 
 //components
-import { TodoList } from "./components/TodoList";
+import { Tasks } from "./components/Tasks";
 
 //potentially useless
 import { ErrorBoundary } from "./ErrorBoundary";
@@ -25,10 +25,11 @@ const config = async () => new Config(await Dynamics(), Defaults());
 
 export const App = () => {
   const serviceWorker = useRegisterSW();
+
   return (
     <ClientProvider config={config} fallback={GenericFallback}>
       {/* <ServiceWorkerToastContainer {...serviceWorker} /> */}
-      <TodoList />
+      <Tasks />
     </ClientProvider>
   );
 };

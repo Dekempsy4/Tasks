@@ -1,7 +1,7 @@
 import React from 'react';
 import "../main.css";
 
-export const TodoTasks = (() => {
+export const TaskList = (() => {
     return(
         <ul id="taskUL">
             <li className = 'Item'>

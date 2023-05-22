@@ -3,8 +3,8 @@
 }
 
 #mainDiv {
-    height: 1vh;
     color: white;
+    width: 100%;
 }
 
 #mainContent {
@@ -15,9 +15,26 @@
 }
 
 
+/* Side Bar */
+#sideBar {
+    background-color: #303034;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 15%;
+    color: white;
+    padding: 10px;
+}
+
+#sideBarTitle {
+    font-size: 30px;
+    text-align: center;
+}
 
 
-/* List */
+
+/* Task List */
 #itemList {
     margin: auto;
     width: 100%;   
@@ -25,9 +42,10 @@
 }
 
 #taskListName {
-    height: 60px;
+    height: 70px;
     padding: 10px;
     background-color: #303034;
+    font-size: 25px;
 }
 
 #completeAllButton {
@@ -41,6 +59,8 @@ input:hover {
 button:hover {
     background-color:#45454a;
 }
+
+
 
 
 
@@ -78,6 +98,9 @@ button:hover {
     height: 50px;
     float: right;
 }
+
+
+
 
 
 /* New Task Section */
