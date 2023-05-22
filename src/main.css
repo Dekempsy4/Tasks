@@ -1,50 +1,33 @@
-:root {
-    background-color: #e3e5e8;
-    color: black;
+#root {
+    background-color:#1b1b1e;
 }
 
 #mainDiv {
     height: 1vh;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Title */
-#appTitle {
-    font-size: 80px;
-    font-weight: 200;
-    text-align: center;
-    color: #b83f45;
-    margin-bottom: 30px;
-}
-
-/* Main Blocks */
-#sideBar {
-    border: 1px solid grey;
-    background-color: #dcddde;
-    height: 100%;
-    position: absolute;
+    color: white;
 }
 
 #mainContent {
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    margin: auto;
+    margin-top: 100px;
+    width: 60%;
+    background-color: #303034;
 }
+
 
 
 
 /* List */
 #itemList {
     margin: auto;
-    background-color: white;
-    width: 700px;   
+    width: 100%;   
+    
 }
 
-#newTodoInput {
-    width: 100%;
+#taskListName {
     height: 60px;
     padding: 10px;
+    background-color: #303034;
 }
 
 #completeAllButton {
@@ -52,14 +35,16 @@
     height: 100%;
 
 }
-#completeAllButton:hover {
-    background-color: #e1effc;
+input:hover {
+    background-color:#45454a;
+}
+button:hover {
+    background-color:#45454a;
 }
 
-#newEventSection {
-}
 
-/* Tasks */
+
+/* Task */
 .taskCheckInput {
     margin: 10px;
     width: 40px;
@@ -70,9 +55,33 @@
     font-size: 20px;
 }
 
+#taskUL {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0px
+}
+
 .Item {
-    border: 1px solid black;
-    background-color: white;
     margin: auto;
     height: 60px;
+    background-color: #303034;
+}
+
+
+#newItemButton {
+    height: 60px;
+    width: 60px;
+}
+
+.delete {
+    width: 50px;
+    height: 50px;
+    float: right;
+}
+
+
+/* New Task Section */
+#newButtonRow {
+    height:60px;
+    background-color: #303034;  
 }
