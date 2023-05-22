@@ -11,12 +11,8 @@ import "../main.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { TaskList } from "./TaskList"
-import { SpacesBar } from "./SpacesBar"
 
 export const Tasks = observer(() => {
-    // const identity = useIdentity({ login: true });
-    // const client = useClient();
-    
     return(
         <Container fluid id='mainDiv'>
             <Col xs={10} id='mainContent'>

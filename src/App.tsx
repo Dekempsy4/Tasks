@@ -14,7 +14,7 @@ import { useRegisterSW } from "virtual:pwa-register/react";
 
 //components
 import { Tasks } from "./components/Tasks";
-import { SpacesBar } from "./components/SpacesBar";
+import { Root } from "./components/Root";
 
 
 //potentially useless
@@ -26,11 +26,11 @@ import "./main.css";
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <SpacesBar />,
+    element: <Root />,
     children: [
-      { path: '/', element: <Tasks /> },
-      { path: ':spaceKey', element: <Tasks /> },
-      { path: ':spaceKey/:state', element: <Tasks /> },
+      { path: '/', element: <Root /> },
+      { path: ':spaceKey', element: <Root /> },
+      { path: ':spaceKey/:state', element: <Root /> },
     ],
   },
 ]);
