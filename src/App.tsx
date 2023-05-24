@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
   GenericFallback,
   ServiceWorkerToastContainer,
-  RequireIdentity
 } from "@dxos/react-appkit";
 import { ClientProvider } from "@dxos/react-client";
 
@@ -24,17 +23,12 @@ import "./main.css";
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <RequireIdentity/>,
-    children: [{
-      path: '/',
-      element: <Root />,
-      children: [
-        { path: '/', element: <Root /> },
-        { path: ':spaceKey', element: <Root /> },
-        { path: ':spaceKey/:state', element: <Root /> },
-      ]
-    }]
-  }
+    element: <Root />,
+    children: [
+      { path: '/', element: <Root /> },
+      { path: ':spaces', element: <Root /> },
+      { path: ':spaces/:spaceKey', element: <Root /> },
+    ]}
 ]);
 
 // Dynamics allows configuration to be supplied by the hosting KUBE.
