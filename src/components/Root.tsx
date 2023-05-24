@@ -6,7 +6,7 @@ import { Tasks } from "./Tasks"
 import { SpacesBar } from "./SpacesBar"
 
 export const Root = () => {
-    const identity = useIdentity({ login: true });
+    const identity = useIdentity();
     const client = useClient();
 
     return (

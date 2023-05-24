@@ -1,5 +1,5 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider, HashRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
   GenericFallback,
   ServiceWorkerToastContainer,
@@ -32,8 +32,8 @@ const router = createBrowserRouter([
         { path: '/', element: <Root /> },
         { path: ':spaceKey', element: <Root /> },
         { path: ':spaceKey/:state', element: <Root /> },
-      ]}
-    ]
+      ]
+    }]
   }
 ]);
 
@@ -46,7 +46,7 @@ export const App = () => {
   return (
     <ClientProvider config={config} fallback={GenericFallback}>
       <ServiceWorkerToastContainer {...serviceWorker} />
-        <RouterProvider router={router} /> 
+      <RouterProvider router={router} /> 
     </ClientProvider>
   );
 };

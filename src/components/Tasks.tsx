@@ -17,11 +17,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { TaskList } from "./TaskList"
 
 export const Tasks = observer(() => {
-    const params = useParams();
-    const { spaceKey: spaceHex } = params;
-    const spaceKey = PublicKey.safeFrom(spaceHex);
-    const space = useSpace(spaceKey);
-    console.log(spaceKey);
+    // const params = useParams();
+    // const { spaceKey: spaceHex } = params;
+    // const spaceKey = PublicKey.safeFrom(spaceHex);
+    // const space = useSpace(spaceKey);
+    // console.log(spaceKey);
 
     return(
         <Container fluid id='mainDiv'>
