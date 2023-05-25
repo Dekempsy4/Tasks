@@ -5,14 +5,14 @@ import { useClient, useIdentity,} from '@dxos/react-client';
 
 
 
-import { SpacesPage } from '@dxos/react-appkit';
+import { SpacesPage as BaseSpacesPage } from '@dxos/react-appkit';
 
 export const SpacesBar = () => {
 
     return (
         <div id='sideBar'>
             {/* <h1 id="sideBarTitle">Select Space</h1> */}
-            <SpacesPage
+            <BaseSpacesPage
                 spacePath="/spaces/:space" // how to navigate to a specific space
             />
         </div>
