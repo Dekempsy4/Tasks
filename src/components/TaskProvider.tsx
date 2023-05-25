@@ -15,11 +15,13 @@ export const TaskProvider = observer(() => {
     // obtaining space from Route
     let { spaceKey } = useParams();
     const space = useSpace(spaceKey);
-    const tasks = useQuery(space, { type: 'taskList' });
-    console.log(tasks);
-    // if (!taskList) {
-    //     return <Loading label='loading' />;
-    // }
+    const [element] = useQuery(space, {type: 'taskList'});
+    if (!element) {
+        return <Loading label='loading' />;
+    }
+    const [list] = element.tasks;
+    console.log(list);
+
 
     return(<Tasks />);
 })

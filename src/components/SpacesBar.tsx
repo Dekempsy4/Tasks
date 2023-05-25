@@ -22,7 +22,7 @@ export const SpacesBar = () => {
     const client = useClient();
 
     const createNewTaskList = useCallback(async (space: Space) => {
-        const list = new Expando({type: 'taskList', title:'Title this List', tasks:['this', 'is', 'test']});
+        const list = new Expando({type: 'taskList', title:'Title this List', tasks:['hi', 'there']});
         console.log(list);
         await space.db.add(list);
     }, []);
