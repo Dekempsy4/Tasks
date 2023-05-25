@@ -6,8 +6,7 @@ export type Task = {
 };
 
 export type TaskListProps<T extends Task = Task> = {
-    taskTitle: string;
-    tasks: [];
+    tasks: T[];
 };
 
 export const TaskList = <T extends Task = Task>(props: TaskListProps<T>) => {
@@ -15,11 +14,11 @@ export const TaskList = <T extends Task = Task>(props: TaskListProps<T>) => {
     const tasks = props.tasks;
 
     const List = () => {
-        return tasks.map((element)=> {
+        return tasks.map((task, id)=> {
             return(
-                <li className = 'Item'>
+                <li className = 'Item' key={id}>
                     <input className='taskCheckInput' type="checkbox"/>
-                    <label className='taskLabel'>{element.taskTitle}</label>
+                    <label className='taskLabel'>{task.taskTitle}</label>
                     <button className='delete'>X</button>
                 </li>
             );

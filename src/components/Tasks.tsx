@@ -1,7 +1,6 @@
 import React, { useState }  from 'react';
 import { useParams } from 'react-router-dom';
 import { Space, useQuery, observer, useIdentity, ClientProvider, useClient, useSpace } from '@dxos/react-client';
-import { Menubar, Separator, SpaceMenu, SpacesLink, Loading } from '@dxos/react-appkit';
 import { PublicKey } from '@dxos/client';
 
 

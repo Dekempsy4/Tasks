@@ -2,17 +2,18 @@ import React from 'react';
 
 import { Space, useQuery, observer, useIdentity, useClient } from '@dxos/react-client';
 
-import { Tasks } from "./Tasks"
+import { TaskProvider } from "./TaskProvider"
 import { SpacesBar } from "./SpacesBar"
 
 export const Root = () => {
     const identity = useIdentity({login:true});
-    const client = useClient();
+    console.log('IDENTITY INFORMATION')
+    console.log(identity)
 
     return (
         <div>
             <SpacesBar />
-            <Tasks />
+            <TaskProvider />
         </div>
     );
 }
