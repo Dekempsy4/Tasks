@@ -15,6 +15,7 @@
     "@dxos/client": "0.1.41",
     "@dxos/config": "0.1.41",
     "@dxos/echo-schema": "^0.1.41",
+    "@dxos/echo-typegen": "^0.1.41",
     "@dxos/react-appkit": "0.1.41",
     "@dxos/react-client": "0.1.41",
     "@dxos/vault": "0.1.41",

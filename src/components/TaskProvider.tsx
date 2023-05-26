@@ -8,7 +8,10 @@ import { Loading } from '@dxos/react-appkit';
 import { Space, useQuery, observer, useIdentity, ClientProvider, useClient, useSpace } from '@dxos/react-client';
 
 
+
+
 export const TaskProvider = observer(() => {
+
     const [newTaskText, setNewText] = useState('New Task');
 
     const identity = useIdentity();
@@ -25,11 +28,17 @@ export const TaskProvider = observer(() => {
     }
 
     const onNameChange = (e) => {
-        element.title = e.target.value;
+        element.listTitle = e.target.value;
     }
 
     const onTaskCreate = (e) => {
-        element.newTaskText = e.target.value;
+        e.preventDefault();
+        const newTask = {
+            type: 'task',
+            taskText: document.getElementById('newTaskInput').value,
+            completed: false,
+        }
+        element.tasks.push(newTask)
     }
 
     return(
@@ -37,6 +46,7 @@ export const TaskProvider = observer(() => {
             listTitle={element.title}
             tasks={element.tasks}
             onTitleChanged={onNameChange}
+            onTaskCreate={onTaskCreate}
 
         />
     );

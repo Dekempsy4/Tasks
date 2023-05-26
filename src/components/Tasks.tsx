@@ -1,7 +1,5 @@
 import React, { useState }  from 'react';
-import { useParams } from 'react-router-dom';
-import { Space, useQuery, observer, useIdentity, ClientProvider, useClient, useSpace } from '@dxos/react-client';
-import { PublicKey } from '@dxos/client';
+import { Loading } from '@dxos/react-appkit';
 
 
 import Container from 'react-bootstrap/Container';
@@ -25,8 +23,8 @@ export type Task = {
 export type TaskListProps<T extends Task = Task> = {
     listTitle: string;
     tasks: T[];
-    onTitleChanged?: (title: string) => any;
-    onTaskCreate?: () => any;
+    onTitleChanged?: (e: any) => void;
+    onTaskCreate?: (e: any) => void;
     onTaskTitleChanged?: (task: T, title: string) => any;
     onTaskCompleteChanged?: (task: T, completed: boolean) => any;
     onTaskDeleted?: (task: T) => any;
@@ -34,13 +32,10 @@ export type TaskListProps<T extends Task = Task> = {
 
 export const Tasks = <T extends Task = Task>(props: TaskListProps<T>) => {
     const { tasks, listTitle, onTitleChanged, onTaskCreate, onTaskTitleChanged, onTaskCompleteChanged, onTaskDeleted } = props;
-    // Component State
-    const [name, setName] = useState(listTitle);
-    const [tasksState, setTasks] = useState(tasks);
 
-    // obtaining space from Route
-    let { spaceKey } = useParams();
-    const space = useSpace(spaceKey);
+    if (!tasks) {
+        return <Loading label='Loading' />;
+    }
 
 
 
@@ -50,9 +45,9 @@ export const Tasks = <T extends Task = Task>(props: TaskListProps<T>) => {
                 <Row id="newEventSection">
                     <input id='taskListName' value={listTitle} onChange={onTitleChanged}/>
                 </Row>
-                <Row id='taskListRow'><TaskList tasks={tasksState}/></Row>
+                <Row id='taskListRow'><TaskList tasks={tasks}/></Row>
                 <Row  id='newButtonRow'>
-                    <form onSubmit={()=>{console.log('youpiii')}}>
+                    <form onSubmit={onTaskCreate}>
                         <Col xs={2}><button id='newItemButton'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Plus_symbol.svg/1000px-Plus_symbol.svg.png?20081122110508'></img></button></Col>
                         <Col xs={10}><input id='newTaskInput' placeholder='New Task'/></Col>
                     </form>

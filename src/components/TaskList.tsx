@@ -12,18 +12,16 @@ export type TaskListProps<T extends Task = Task> = {
 };
 
 export const TaskList = <T extends Task = Task>(props: TaskListProps<T>) => {
-    const [count, setCount] = useState(0);
-    const location = useLocation();
+    // const location = useLocation();
 
-    React.useEffect(() => {
-        console.log('location change!')
-        console.log(location)
-        setCount(count);
-    }, [location.pathname]);
-
-
+    // React.useEffect(() => {
+    //     console.log('location change!')
+    //     window.location.reload();
+    // }, [location]);
 
     const tasks = props.tasks;
+    
+    
 
     const List = () => {
         return tasks.map((task, id)=> {
