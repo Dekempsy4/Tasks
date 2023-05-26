@@ -1,5 +1,5 @@
 import React, { useState }  from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 
 import { Tasks } from './Tasks';
 
@@ -9,19 +9,35 @@ import { Space, useQuery, observer, useIdentity, ClientProvider, useClient, useS
 
 
 export const TaskProvider = observer(() => {
+    const [newTaskText, setNewText] = useState('New Task');
+
     const identity = useIdentity();
     const client = useClient();
 
     // obtaining space from Route
     let { spaceKey } = useParams();
     const space = useSpace(spaceKey);
+
+
     const [element] = useQuery(space, {type: 'taskList'});
     if (!element) {
         return <Loading label='loading' />;
     }
-    const [list] = element.tasks;
-    console.log(list);
 
+    const onNameChange = (e) => {
+        element.title = e.target.value;
+    }
 
-    return(<Tasks />);
+    const onTaskCreate = (e) => {
+        element.newTaskText = e.target.value;
+    }
+
+    return(
+        <Tasks 
+            listTitle={element.title}
+            tasks={element.tasks}
+            onTitleChanged={onNameChange}
+
+        />
+    );
 })

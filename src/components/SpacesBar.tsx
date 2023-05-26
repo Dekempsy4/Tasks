@@ -7,14 +7,8 @@ import { useClient, useIdentity, useSpace} from '@dxos/react-client';
 import { SpacesPage as BaseSpacesPage } from '@dxos/react-appkit';
 import { TaskProvider } from './TaskProvider';
 
-// import { Task, TaskList } from "../proto/schema_pb";
 
 
-class Task extends TypedObject {
-    public declare type: 'task';
-    public declare isCompleted: boolean;
-    public declare 
-}
 
 export const SpacesBar = () => {
     
@@ -22,7 +16,7 @@ export const SpacesBar = () => {
     const client = useClient();
 
     const createNewTaskList = useCallback(async (space: Space) => {
-        const list = new Expando({type: 'taskList', title:'Title this List', tasks:['hi', 'there']});
+        const list = new Expando({type: 'taskList', title:'Title this List', tasks:[]});
         console.log(list);
         await space.db.add(list);
     }, []);
