@@ -35,8 +35,8 @@ export default defineConfig({
       },
       includeAssets: ["favicon.ico"],
       manifest: {
-        name: "FT-Todo",
-        short_name: "FT-Todo",
+        name: "FT-Tasks",
+        short_name: "FT-Tasks",
         theme_color: "#ffffff",
         icons: [
           {
