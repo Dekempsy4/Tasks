@@ -1,50 +1,70 @@
-:root {
-    background-color: #e3e5e8;
-    color: black;
+#TEST {
+    font-size: 300px;
+}
+
+#root {
+    background-color:#1b1b1e;
 }
 
 #mainDiv {
-    height: 1vh;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Title */
-#appTitle {
-    font-size: 80px;
-    font-weight: 200;
-    text-align: center;
-    color: #b83f45;
-    margin-bottom: 30px;
-}
-
-/* Main Blocks */
-#sideBar {
-    border: 1px solid grey;
-    background-color: #dcddde;
-    height: 100%;
-    position: absolute;
+    color: white;
+    width: 75%;
+    margin-left: 25%;
 }
 
 #mainContent {
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    margin: auto;
+    margin-top: 100px;
+    width: 60%;
+    background-color: #303034;
+}
+
+
+/* Side Bar */
+#sideBar {
+    background-color: #303034;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 25%;
+    color: white;
+    padding: 10px;
+    overflow: scroll;
+}
+.example::-webkit-scrollbar {
+    display: none;
+}
+
+#sideBarTitle {
+    font-size: 30px;
+    text-align: center;
 }
 
 
 
-/* List */
+/* Task List */
 #itemList {
     margin: auto;
-    background-color: white;
-    width: 700px;   
+    width: 100%;   
+    
 }
 
-#newTodoInput {
-    width: 100%;
-    height: 60px;
+#taskListName {
+    height: 70px;
     padding: 10px;
+    background-color: #303034;
+    font-size: 25px;
+}
+
+#newTaskInput {
+    height: 50px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #303034;
+    font-size: 25px;
+    width: 100%;
 }
 
 #completeAllButton {
@@ -52,14 +72,18 @@
     height: 100%;
 
 }
-#completeAllButton:hover {
-    background-color: #e1effc;
+input:hover {
+    background-color:#45454a;
+}
+button:hover {
+    background-color:#45454a;
 }
 
-#newEventSection {
-}
 
-/* Tasks */
+
+
+
+/* Task */
 .taskCheckInput {
     margin: 10px;
     width: 40px;
@@ -70,9 +94,36 @@
     font-size: 20px;
 }
 
+#taskUL {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0px
+}
+
 .Item {
-    border: 1px solid black;
-    background-color: white;
     margin: auto;
     height: 60px;
+    background-color: #303034;
+}
+
+
+#newItemButton {
+    height: 60px;
+    width: 60px;
+}
+
+.delete {
+    width: 50px;
+    height: 50px;
+    float: right;
+}
+
+
+
+
+
+/* New Task Section */
+#newButtonRow {
+    height:60px;
+    background-color: #303034;  
 }

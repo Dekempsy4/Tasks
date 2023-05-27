@@ -1,6 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
+
 // This includes css styles from @dxos/aurora-theme.
 // This must precede all other style imports in the app.
 import "@dxosTheme";
