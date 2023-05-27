@@ -22,12 +22,12 @@ export type Task = {
 
 export type TaskListProps<T extends Task = Task> = {
     listTitle: string;
-    tasks: T[];
+    tasks: [];
     onTitleChanged?: (e: any) => void;
     onTaskCreate?: (e: any) => void;
     onTaskTitleChanged?: (task: T, title: string) => any;
-    onTaskCompleteChanged?: (task: T, completed: boolean) => any;
-    onTaskDeleted?: (task: T) => any;
+    onTaskCompleteChanged?: (task: any) => void;
+    onTaskDeleted?: (task: any) => void;
 };
 
 export const Tasks = <T extends Task = Task>(props: TaskListProps<T>) => {
@@ -45,14 +45,13 @@ export const Tasks = <T extends Task = Task>(props: TaskListProps<T>) => {
                 <Row id="newEventSection">
                     <input id='taskListName' value={listTitle} onChange={onTitleChanged}/>
                 </Row>
-                <Row id='taskListRow'><TaskList tasks={tasks}/></Row>
-                <Row  id='newButtonRow'>
+                <Row id='taskListRow'><TaskList tasks={tasks} onTaskDeleted={onTaskDeleted} onTaskCompleteChanged={onTaskCompleteChanged}/></Row>
                     <form onSubmit={onTaskCreate}>
-                        <Col xs={2}><button id='newItemButton'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Plus_symbol.svg/1000px-Plus_symbol.svg.png?20081122110508'></img></button></Col>
-                        <Col xs={10}><input id='newTaskInput' placeholder='New Task'/></Col>
-                    </form>
-                    
-                </Row>
+                        <Row  id='newButtonRow'>
+                            <Col xs={2}><button id='newItemButton'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Plus_symbol.svg/1000px-Plus_symbol.svg.png?20081122110508'></img></button></Col>
+                            <Col xs={10}><input id='newTaskInput' placeholder='New Task'/></Col>
+                        </Row>
+                    </form>       
             </Col>
         </Container>
     );

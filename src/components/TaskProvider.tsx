@@ -3,7 +3,7 @@ import { useParams, useLocation } from 'react-router-dom';
 
 import { Tasks } from './Tasks';
 
-import { PublicKey } from '@dxos/client';
+import { Expando } from '@dxos/client';
 import { Loading } from '@dxos/react-appkit';
 import { Space, useQuery, observer, useIdentity, ClientProvider, useClient, useSpace } from '@dxos/react-client';
 
@@ -23,6 +23,7 @@ export const TaskProvider = observer(() => {
 
 
     const [element] = useQuery(space, {type: 'taskList'});
+
     if (!element) {
         return <Loading label='loading' />;
     }
@@ -32,21 +33,38 @@ export const TaskProvider = observer(() => {
     }
 
     const onTaskCreate = (e) => {
+        const inputText = (document.getElementById('newTaskInput') as HTMLInputElement).value;
         e.preventDefault();
         const newTask = {
             type: 'task',
-            taskText: document.getElementById('newTaskInput').value,
+            id: Math.random().toString(16).slice(2),
+            taskText: inputText,
             completed: false,
         }
-        element.tasks.push(newTask)
+        element.tasks.push(newTask);
+        (document.getElementById('newTaskInput') as HTMLInputElement).value = '';
+    }
+
+    const onTaskDeleted = (task) => {
+        let index = element.tasks.map( el => el.id ).indexOf(task.id)
+        element.tasks.splice(index, 1);
+    }
+
+    const onTaskCompleteChanged = (task) => {
+        const index = element.tasks.map( el => el.id ).indexOf(task.id)
+        let newTask = task;
+        newTask.completed = !task.completed;
+        element.tasks[index] = newTask;
     }
 
     return(
         <Tasks 
-            listTitle={element.title}
+            listTitle={element.listTitle}
             tasks={element.tasks}
             onTitleChanged={onNameChange}
             onTaskCreate={onTaskCreate}
+            onTaskDeleted={onTaskDeleted}
+            onTaskCompleteChanged={onTaskCompleteChanged}
 
         />
     );
