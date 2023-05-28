@@ -1,11 +1,9 @@
 import React, { useState }  from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { Tasks } from './Tasks';
-
-import { Expando } from '@dxos/client';
 import { Loading } from '@dxos/react-appkit';
-import { Space, useQuery, observer, useIdentity, ClientProvider, useClient, useSpace } from '@dxos/react-client';
+import { useQuery, observer, useIdentity, useClient, useSpace } from '@dxos/react-client';
 
 
 

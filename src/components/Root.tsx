@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
-import { Space, useQuery, observer, useIdentity, useClient } from '@dxos/react-client';
+import { useIdentity, useClient } from '@dxos/react-client';
 
 import { TaskProvider } from "./TaskProvider"
 import { SpacesBar } from "./SpacesBar"
