@@ -39,8 +39,8 @@ export const App = () => {
 
   return (
     <ClientProvider config={config} fallback={GenericFallback}>
-      <ServiceWorkerToastContainer {...serviceWorker} />
       <RouterProvider router={router} /> 
+      <ServiceWorkerToastContainer {...serviceWorker} />
     </ClientProvider>
   );
 };
