@@ -55,6 +55,8 @@
     padding: 10px;
     background-color: #303034;
     font-size: 25px;
+    width: 100%;
+    margin: 0px;
 }
 
 #newTaskInput {
@@ -78,6 +80,21 @@ input:hover {
 button:hover {
     background-color:#45454a;
 }
+
+#createInvite {
+    height: 100%;
+    width: 100%;
+}
+
+#newEventSection {
+    padding: 0px;
+}
+#nameCol, #invCol {
+    padding: 0px;
+    margin: 0px;
+    background-color: #303034;
+}
+
 
 
 
