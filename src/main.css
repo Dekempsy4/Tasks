@@ -136,7 +136,19 @@ button:hover {
 }
 
 
+.popupDiv {
+    width: 500px;
+    height: 200px;
+    color: black;
+    background-color: #65a7bf;
+    overflow-wrap: break-word;
+    padding: 20px;
+    margin: auto;
+}
 
+.popupText {
+    font-size: 30px;
+}
 
 
 /* New Task Section */

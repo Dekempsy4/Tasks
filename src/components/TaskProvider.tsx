@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Tasks } from './Tasks';
 import { Loading } from '@dxos/react-appkit';
 import { useQuery, observer, useSpace } from '@dxos/react-client';
+import { InvitationEncoder } from '@dxos/client';
 
 
 
 
 export const TaskProvider = observer(() => {
+    let [code, setCode] = useState('empty')
 
     // obtaining space from Route
     let { spaceKey } = useParams();
@@ -49,14 +51,22 @@ export const TaskProvider = observer(() => {
         element.tasks[index] = newTask;
     }
 
+    const invitePeer = () => {
+        const invitation = space.createInvitation();
+        setCode(InvitationEncoder.encode(invitation.get()));
+        console.log(code);
+    }
+
     return(
         <Tasks 
             listTitle={element.listTitle}
             tasks={element.tasks}
+            inviteCode={code}
             onTitleChanged={onNameChange}
             onTaskCreate={onTaskCreate}
             onTaskDeleted={onTaskDeleted}
             onTaskCompleteChanged={onTaskCompleteChanged}
+            invitePeer={invitePeer}
 
         />
     );
