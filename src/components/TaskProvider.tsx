@@ -54,7 +54,6 @@ export const TaskProvider = observer(() => {
     const invitePeer = () => {
         const invitation = space.createInvitation();
         setCode(InvitationEncoder.encode(invitation.get()));
-        console.log(code);
     }
 
     return(
